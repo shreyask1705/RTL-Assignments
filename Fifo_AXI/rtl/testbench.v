@@ -8,7 +8,8 @@ module dual_fifo_tb;
     
     reg [data_width-1:0] mem [0:24000];
     integer i;
-    integer fp_write_out;
+    integer fp_write_out0;
+    integer fp_write_out1;
     
     // FIFO 0 signals
     reg [data_width-1:0] data_in0;
@@ -34,12 +35,13 @@ module dual_fifo_tb;
         .tvalid_in0(tvalid_in0),
         .tlast_in0(tlast_in0),
         .tready_out0(tready_out0),
+        .data_out0(data_out0),  // Added output signal to monitor
         .data_out1(data_out1),
         .tvalid_out1(tvalid_out1),
         .tlast_out1(tlast_out1),
         .tready_in1(tready_in1)
     );
-
+    
     // Clock generation
     always begin
         #5 clk = ~clk;
@@ -55,7 +57,8 @@ module dual_fifo_tb;
         tready_in1 = 1;  // Enable reading from FIFO 1
 
         $readmemb("C:/Users/shrsk/Downloads/inp_bin.dat", mem);
-        fp_write_out = $fopen("out_bin.txt", "w");
+        fp_write_out0 = $fopen("out_fifo0_bin.txt", "w");
+        fp_write_out1 = $fopen("out_fifo1_bin.txt", "w");
         
         // Reset the FIFOs
         #10 reset = 0;
@@ -85,14 +88,22 @@ module dual_fifo_tb;
 
             // Write output data to file
             if (tvalid_out1 && tready_in1) begin
-                $fwrite(fp_write_out, "%b\n", data_out1);
+                $fwrite(fp_write_out1, "%b\n", data_out1);
+            end
+            
+            // Write FIFO 0 output data to file
+            if (tvalid_in0 && tready_out0) begin
+                $fwrite(fp_write_out0, "%b\n", data_out0);
             end
         end
     end
 
     initial begin
-        // Close the file at the end of the simulation
-        #500000 $fclose(fp_write_out);  // Increased simulation time
+        // Close the files at the end of the simulation
+        #500000 begin
+            $fclose(fp_write_out0);
+            $fclose(fp_write_out1);
+        end
         $stop;
     end
 
