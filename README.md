@@ -1,3 +1,5 @@
+**RTL Assignments**
+
 This repository contains all the source codes and testbenches for the RTL assignment. 
 
 Each folder contains 2 folders namely RTL and reports. The rtl folder contains verilog code for the particular module along with the testbench for it. The reports folfer contains compilation reports of the particular
