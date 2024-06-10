@@ -35,7 +35,7 @@ module dual_fifo_tb;
         .tvalid_in0(tvalid_in0),
         .tlast_in0(tlast_in0),
         .tready_out0(tready_out0),
-        .data_out0(data_out0),  // Added output signal to monitor
+        .data_out0(data_out0),  
         .data_out1(data_out1),
         .tvalid_out1(tvalid_out1),
         .tlast_out1(tlast_out1),
@@ -72,7 +72,7 @@ module dual_fifo_tb;
                 if (tready_out0) begin
                     data_in0 <= mem[i];
                     tvalid_in0 <= 1;
-                    if (i == 10) begin
+                    if (i == 10) begin // tlast packet
                         tlast_in0 <= 1;
                     end else begin
                         tlast_in0 <= 0;
