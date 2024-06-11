@@ -46,7 +46,7 @@ module testbench;
         .underflow_flag(underflow_flag)
     );
 
-    // Testbench procedure
+   
     initial begin
         // Initialize inputs
         A_in = 0;
@@ -56,34 +56,29 @@ module testbench;
         $monitor("Time: %d, A_in: %b, B_in: %b, out: %b, overflow_flag: %b, underflow_flag: %b", 
             $time, A_in, B_in, out, overflow_flag, underflow_flag);
 
-        // Test case 1: Normal addition
-        #10 A_in = 16'b0000000000001100; // 0.75
-        B_in = 16'b0000000000000011; // 0.1875
+        // Test cases
+        #10 A_in = 16'b0000000000001100; 
+        B_in = 16'b0000000000000011; 
+        #10;
+        
+        #10 A_in = 16'b0111111111111111; 
+        B_in = 16'b0000000000000001;
+        #10;
+        
+        #10 A_in = 16'b1000000000000001; 
+        B_in = 16'b1000000000000001; 
+        #10;
+        
+        #10 A_in = 16'b0000000000011000;
+        B_in = 16'b0000000000001100;
         #10;
 
-        // Test case 2: Overflow case
-        #10 A_in = 16'b0111111111111111; // Just below 2.0
-        B_in = 16'b0000000000000001; // 0.0625
+        #10 A_in = 16'b0111111111111111; 
+        B_in = 16'b0111111111111111; 
         #10;
-
-        // Test case 3: Underflow case
-        #10 A_in = 16'b1000000000000001; // -1.9375
-        B_in = 16'b1000000000000001; // -1.9375
-        #10;
-
-        // Test case 4: Another normal addition
-        #10 A_in = 16'b0000000000011000; // 1.5
-        B_in = 16'b0000000000001100; // 0.75
-        #10;
-
-        // Test case 5: Another overflow case
-        #10 A_in = 16'b0111111111111111; // Just below 2.0
-        B_in = 16'b0111111111111111; // Just below 2.0
-        #10;
-
-        // Test case 6: Another underflow case
-        #10 A_in = 16'b1100000000000000; // -2.0
-        B_in = 16'b1100000000000000; // -2.0
+        
+        #10 A_in = 16'b1100000000000000; 
+        B_in = 16'b1100000000000000; 
         #10;
 
         // Finish simulation
