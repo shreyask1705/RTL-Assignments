@@ -1,5 +1,5 @@
 Power Analyzer report for fifo
-Mon Jun 10 16:15:09 2024
+Wed Jun 12 10:46:09 2024
 Quartus Prime Version 23.1std.0 Build 991 11/28/2023 SC Lite Edition
 
 
@@ -53,55 +53,57 @@ https://fpgasoftware.intel.com/eula.
 ; Number detected on machine ; 16          ;
 ; Maximum allowed            ; 16          ;
 ;                            ;             ;
-; Average used               ; 1.22        ;
+; Average used               ; 1.31        ;
 ; Maximum used               ; 16          ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processors 2-16        ;   1.4%      ;
+;     Processors 2-16        ;   2.0%      ;
 +----------------------------+-------------+
 
 
 +-------------------------------------------------------------------------------------------+
 ; Power Analyzer Summary                                                                    ;
 +----------------------------------------+--------------------------------------------------+
-; Power Analyzer Status                  ; Successful - Mon Jun 10 16:15:09 2024            ;
+; Power Analyzer Status                  ; Successful - Wed Jun 12 10:46:09 2024            ;
 ; Quartus Prime Version                  ; 23.1std.0 Build 991 11/28/2023 SC Lite Edition   ;
 ; Revision Name                          ; fifo                                             ;
-; Top-level Entity Name                  ; fifo                                             ;
+; Top-level Entity Name                  ; dual_fifo                                        ;
 ; Family                                 ; MAX 10                                           ;
 ; Device                                 ; 10M50DAF484C7G                                   ;
 ; Power Models                           ; Final                                            ;
-; Total Thermal Power Dissipation        ; 98.57 mW                                         ;
+; Total Thermal Power Dissipation        ; 98.65 mW                                         ;
 ; Core Dynamic Thermal Power Dissipation ; 0.00 mW                                          ;
 ; Core Static Thermal Power Dissipation  ; 89.94 mW                                         ;
-; I/O Thermal Power Dissipation          ; 8.63 mW                                          ;
+; I/O Thermal Power Dissipation          ; 8.70 mW                                          ;
 ; Power Estimation Confidence            ; Low: user provided insufficient toggle rate data ;
 +----------------------------------------+--------------------------------------------------+
 
 
-+--------------------------------------------------------------------------------------------+
-; Power Analyzer Settings                                                                    ;
-+------------------------------------------------------------------+---------+---------------+
-; Option                                                           ; Setting ; Default Value ;
-+------------------------------------------------------------------+---------+---------------+
-; Use smart compilation                                            ; Off     ; Off           ;
-; Enable parallel Assembler and Timing Analyzer during compilation ; On      ; On            ;
-; Enable compact report table                                      ; Off     ; Off           ;
-; Default Power Toggle Rate                                        ; 12.5%   ; 12.5%         ;
-; Default Power Input I/O Toggle Rate                              ; 12.5%   ; 12.5%         ;
-; Use vectorless estimation                                        ; On      ; On            ;
-; Use Input Files                                                  ; Off     ; Off           ;
-; Filter Glitches in VCD File Reader                               ; On      ; On            ;
-; Power Analyzer Report Signal Activity                            ; Off     ; Off           ;
-; Power Analyzer Report Power Dissipation                          ; Off     ; Off           ;
-; Device Power Characteristics                                     ; TYPICAL ; TYPICAL       ;
-; Automatically Compute Junction Temperature                       ; On      ; On            ;
-; Specified Junction Temperature                                   ; 25      ; 25            ;
-; Ambient Temperature                                              ; 25      ; 25            ;
-; Use Custom Cooling Solution                                      ; Off     ; Off           ;
-; Board Temperature                                                ; 25      ; 25            ;
-+------------------------------------------------------------------+---------+---------------+
++--------------------------------------------------------------------------------------------------------------------------+
+; Power Analyzer Settings                                                                                                  ;
++------------------------------------------------------------------+---------------------------------------+---------------+
+; Option                                                           ; Setting                               ; Default Value ;
++------------------------------------------------------------------+---------------------------------------+---------------+
+; Use smart compilation                                            ; Off                                   ; Off           ;
+; Enable parallel Assembler and Timing Analyzer during compilation ; On                                    ; On            ;
+; Enable compact report table                                      ; Off                                   ; Off           ;
+; Preset Cooling Solution                                          ; 23 MM HEAT SINK WITH 200 LFPM AIRFLOW ;               ;
+; Board thermal model                                              ; None (CONSERVATIVE)                   ;               ;
+; Default Power Toggle Rate                                        ; 12.5%                                 ; 12.5%         ;
+; Default Power Input I/O Toggle Rate                              ; 12.5%                                 ; 12.5%         ;
+; Use vectorless estimation                                        ; On                                    ; On            ;
+; Use Input Files                                                  ; Off                                   ; Off           ;
+; Filter Glitches in VCD File Reader                               ; On                                    ; On            ;
+; Power Analyzer Report Signal Activity                            ; Off                                   ; Off           ;
+; Power Analyzer Report Power Dissipation                          ; Off                                   ; Off           ;
+; Device Power Characteristics                                     ; TYPICAL                               ; TYPICAL       ;
+; Automatically Compute Junction Temperature                       ; On                                    ; On            ;
+; Specified Junction Temperature                                   ; 25                                    ; 25            ;
+; Ambient Temperature                                              ; 25                                    ; 25            ;
+; Use Custom Cooling Solution                                      ; Off                                   ; Off           ;
+; Board Temperature                                                ; 25                                    ; 25            ;
++------------------------------------------------------------------+---------------------------------------+---------------+
 
 
 +--------------------------------------------------+
@@ -110,26 +112,26 @@ https://fpgasoftware.intel.com/eula.
 ; Node               ; Reason                      ;
 +--------------------+-----------------------------+
 ; clk                ; No valid clock domain found ;
-; tready_in          ; No valid clock domain found ;
 ; reset              ; No valid clock domain found ;
-; tvalid_in          ; No valid clock domain found ;
-; tlast_in           ; No valid clock domain found ;
-; data_in[0]         ; No valid clock domain found ;
-; data_in[1]         ; No valid clock domain found ;
-; data_in[2]         ; No valid clock domain found ;
-; data_in[3]         ; No valid clock domain found ;
-; data_in[4]         ; No valid clock domain found ;
-; data_in[5]         ; No valid clock domain found ;
-; data_in[6]         ; No valid clock domain found ;
-; data_in[7]         ; No valid clock domain found ;
-; data_in[8]         ; No valid clock domain found ;
-; data_in[9]         ; No valid clock domain found ;
-; data_in[10]        ; No valid clock domain found ;
-; data_in[11]        ; No valid clock domain found ;
-; data_in[12]        ; No valid clock domain found ;
-; data_in[13]        ; No valid clock domain found ;
-; data_in[14]        ; No valid clock domain found ;
-; data_in[15]        ; No valid clock domain found ;
+; tvalid_in0         ; No valid clock domain found ;
+; tready_in1         ; No valid clock domain found ;
+; data_in0[0]        ; No valid clock domain found ;
+; data_in0[1]        ; No valid clock domain found ;
+; data_in0[2]        ; No valid clock domain found ;
+; data_in0[3]        ; No valid clock domain found ;
+; data_in0[4]        ; No valid clock domain found ;
+; data_in0[5]        ; No valid clock domain found ;
+; data_in0[6]        ; No valid clock domain found ;
+; data_in0[7]        ; No valid clock domain found ;
+; data_in0[8]        ; No valid clock domain found ;
+; data_in0[9]        ; No valid clock domain found ;
+; data_in0[10]       ; No valid clock domain found ;
+; data_in0[11]       ; No valid clock domain found ;
+; data_in0[12]       ; No valid clock domain found ;
+; data_in0[13]       ; No valid clock domain found ;
+; data_in0[14]       ; No valid clock domain found ;
+; data_in0[15]       ; No valid clock domain found ;
+; tlast_in0          ; No valid clock domain found ;
 ; reset~inputclkctrl ; No valid clock domain found ;
 ; clk~inputclkctrl   ; No valid clock domain found ;
 +--------------------+-----------------------------+
@@ -178,21 +180,25 @@ https://fpgasoftware.intel.com/eula.
 ; Combinational cell  ; 0.00 mW                           ; 0.00 mW                     ; --                             ; 0.00 mW                       ;    0.000                                                  ;
 ; Clock control block ; 0.00 mW                           ; 0.00 mW                     ; --                             ; 0.00 mW                       ;    0.000                                                  ;
 ; Register cell       ; 0.00 mW                           ; 0.00 mW                     ; --                             ; 0.00 mW                       ;    0.000                                                  ;
-; I/O                 ; 0.19 mW                           ; 0.00 mW                     ; 0.19 mW                        ; 0.00 mW                       ;    0.000                                                  ;
+; I/O                 ; 0.26 mW                           ; 0.00 mW                     ; 0.26 mW                        ; 0.00 mW                       ;    0.000                                                  ;
 +---------------------+-----------------------------------+-----------------------------+--------------------------------+-------------------------------+-----------------------------------------------------------+
 (1) The "Block Thermal Static Power" for all block types except Pins and the Voltage Regulator, if one exists, is part of the "Core Static Thermal Power Dissipation" value found on the PowerPlay Power Analyzer-->Summary report panel. The "Core Static Thermal Power Dissipation" also contains the thermal static power dissipated by the routing.
 
 
-+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Thermal Power Dissipation by Hierarchy                                                                                                                                                                                                               ;
-+-----------------------------------------+--------------------------------------+---------------------------------+-----------------------------------+-----------------------------------+-----------------------------------------------------------+
-; Compilation Hierarchy Node              ; Total Thermal Power by Hierarchy (1) ; Block Thermal Dynamic Power (1) ; Block Thermal Static Power (1)(2) ; Routing Thermal Dynamic Power (1) ; Full Hierarchy Name                                       ;
-+-----------------------------------------+--------------------------------------+---------------------------------+-----------------------------------+-----------------------------------+-----------------------------------------------------------+
-; |fifo                                   ; 0.19 mW (0.19 mW)                    ; 0.00 mW (0.00 mW)               ; 0.19 mW (0.19 mW)                 ; 0.00 mW (0.00 mW)                 ; |fifo                                                     ;
-;     |hard_block:auto_generated_inst     ; 0.00 mW (0.00 mW)                    ; 0.00 mW (0.00 mW)               ; --                                ; 0.00 mW (0.00 mW)                 ; |fifo|hard_block:auto_generated_inst                      ;
-;     |altsyncram:mem_rtl_0               ; 0.00 mW (0.00 mW)                    ; 0.00 mW (0.00 mW)               ; --                                ; 0.00 mW (0.00 mW)                 ; |fifo|altsyncram:mem_rtl_0                                ;
-;         |altsyncram_rvh1:auto_generated ; 0.00 mW (0.00 mW)                    ; 0.00 mW (0.00 mW)               ; --                                ; 0.00 mW (0.00 mW)                 ; |fifo|altsyncram:mem_rtl_0|altsyncram_rvh1:auto_generated ;
-+-----------------------------------------+--------------------------------------+---------------------------------+-----------------------------------+-----------------------------------+-----------------------------------------------------------+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Thermal Power Dissipation by Hierarchy                                                                                                                                                                                                                                   ;
++---------------------------------------------+--------------------------------------+---------------------------------+-----------------------------------+-----------------------------------+---------------------------------------------------------------------------+
+; Compilation Hierarchy Node                  ; Total Thermal Power by Hierarchy (1) ; Block Thermal Dynamic Power (1) ; Block Thermal Static Power (1)(2) ; Routing Thermal Dynamic Power (1) ; Full Hierarchy Name                                                       ;
++---------------------------------------------+--------------------------------------+---------------------------------+-----------------------------------+-----------------------------------+---------------------------------------------------------------------------+
+; |dual_fifo                                  ; 0.26 mW (0.26 mW)                    ; 0.00 mW (0.00 mW)               ; 0.26 mW (0.26 mW)                 ; 0.00 mW (0.00 mW)                 ; |dual_fifo                                                                ;
+;     |hard_block:auto_generated_inst         ; 0.00 mW (0.00 mW)                    ; 0.00 mW (0.00 mW)               ; --                                ; 0.00 mW (0.00 mW)                 ; |dual_fifo|hard_block:auto_generated_inst                                 ;
+;     |fifo:fifo0                             ; 0.00 mW (0.00 mW)                    ; 0.00 mW (0.00 mW)               ; --                                ; 0.00 mW (0.00 mW)                 ; |dual_fifo|fifo:fifo0                                                     ;
+;         |altsyncram:mem_rtl_0               ; 0.00 mW (0.00 mW)                    ; 0.00 mW (0.00 mW)               ; --                                ; 0.00 mW (0.00 mW)                 ; |dual_fifo|fifo:fifo0|altsyncram:mem_rtl_0                                ;
+;             |altsyncram_rvh1:auto_generated ; 0.00 mW (0.00 mW)                    ; 0.00 mW (0.00 mW)               ; --                                ; 0.00 mW (0.00 mW)                 ; |dual_fifo|fifo:fifo0|altsyncram:mem_rtl_0|altsyncram_rvh1:auto_generated ;
+;     |fifo:fifo1                             ; 0.00 mW (0.00 mW)                    ; 0.00 mW (0.00 mW)               ; --                                ; 0.00 mW (0.00 mW)                 ; |dual_fifo|fifo:fifo1                                                     ;
+;         |altsyncram:mem_rtl_0               ; 0.00 mW (0.00 mW)                    ; 0.00 mW (0.00 mW)               ; --                                ; 0.00 mW (0.00 mW)                 ; |dual_fifo|fifo:fifo1|altsyncram:mem_rtl_0                                ;
+;             |altsyncram_rvh1:auto_generated ; 0.00 mW (0.00 mW)                    ; 0.00 mW (0.00 mW)               ; --                                ; 0.00 mW (0.00 mW)                 ; |dual_fifo|fifo:fifo1|altsyncram:mem_rtl_0|altsyncram_rvh1:auto_generated ;
++---------------------------------------------+--------------------------------------+---------------------------------+-----------------------------------+-----------------------------------+---------------------------------------------------------------------------+
 (1) Value in parentheses is the power consumed at that level of hierarchy. Value not in parentheses is the power consumed at that level of hierarchy plus the power consumed by all levels of hierarchy below it.
 
 (2) The "Block Thermal Static Power" for all levels of hierarchy except the top-level hierarchy is part of the "Core Static Thermal Power Dissipation" value found on the PowerPlay Power Analyzer-->Summary report panel. The "Core Static Thermal Power Dissipation" also contains the thermal static power dissipated by the routing.
@@ -213,7 +219,7 @@ https://fpgasoftware.intel.com/eula.
 ; Voltage Supply ; Total Current Drawn (1) ; Dynamic Current Drawn (1) ; Static Current Drawn (1) ; Minimum Power Supply Current (2) ;
 +----------------+-------------------------+---------------------------+--------------------------+----------------------------------+
 ; VCC            ; 11.75 mA                ; 0.00 mA                   ; 11.75 mA                 ; 11.75 mA                         ;
-; VCCIO          ; 3.49 mA                 ; 0.00 mA                   ; 3.49 mA                  ; 3.49 mA                          ;
+; VCCIO          ; 3.54 mA                 ; 0.00 mA                   ; 3.54 mA                  ; 3.54 mA                          ;
 ; VCCA           ; 25.80 mA                ; 0.00 mA                   ; 25.80 mA                 ; 25.80 mA                         ;
 ; VCCD_PLL       ; 9.25 mA                 ; 0.00 mA                   ; 9.25 mA                  ; 9.25 mA                          ;
 ; VCCINT         ; 0.21 mA                 ; 0.00 mA                   ; 0.21 mA                  ; 0.21 mA                          ;
@@ -235,8 +241,8 @@ https://fpgasoftware.intel.com/eula.
 ; 4        ; 2.5V          ; 0.38 mA             ; 0.00 mA               ; 0.38 mA              ;
 ; 5        ; 2.5V          ; 0.38 mA             ; 0.00 mA               ; 0.38 mA              ;
 ; 6        ; 2.5V          ; 0.38 mA             ; 0.00 mA               ; 0.38 mA              ;
-; 7        ; 2.5V          ; 0.47 mA             ; 0.00 mA               ; 0.47 mA              ;
-; 8        ; 2.5V          ; 0.38 mA             ; 0.00 mA               ; 0.38 mA              ;
+; 7        ; 2.5V          ; 0.49 mA             ; 0.00 mA               ; 0.49 mA              ;
+; 8        ; 2.5V          ; 0.41 mA             ; 0.00 mA               ; 0.41 mA              ;
 +----------+---------------+---------------------+-----------------------+----------------------+
 
 
@@ -245,7 +251,7 @@ https://fpgasoftware.intel.com/eula.
 +---------------+-------------------------+---------------------------+--------------------------+----------------------------------+
 ; VCCIO Voltage ; Total Current Drawn (1) ; Dynamic Current Drawn (1) ; Static Current Drawn (1) ; Minimum Power Supply Current (2) ;
 +---------------+-------------------------+---------------------------+--------------------------+----------------------------------+
-; 2.5V          ; 3.49 mA                 ; 0.00 mA                   ; 3.49 mA                  ; 3.49 mA                          ;
+; 2.5V          ; 3.54 mA                 ; 0.00 mA                   ; 3.54 mA                  ; 3.54 mA                          ;
 +---------------+-------------------------+---------------------------+--------------------------+----------------------------------+
 (1) Currents reported in columns "Total Current Drawn", "Dynamic Current Drawn", and "Static Current Drawn" are sufficient for user operation of the device.  
 (2) Currents reported in column "Minimum Power Supply Current" are sufficient for power-up, configuration, and user operation of the device.
@@ -262,19 +268,19 @@ https://fpgasoftware.intel.com/eula.
 ;                                                                                        ;             ;            ;              ;               ;
 ; Node, entity or clock assignment                                                       ;             ;            ;              ;               ;
 ;     -- Number of signals with Toggle Rate from Node, entity or clock assignment        ; 0 (0.0%)    ; 0 (0.0%)   ; 0 (0.0%)     ; 0 (0.0%)      ;
-;     -- Number of signals with Static Probability from Node, entity or clock assignment ; 2 (0.5%)    ; 0 (0.0%)   ; 0 (0.0%)     ; 2 (1.0%)      ;
+;     -- Number of signals with Static Probability from Node, entity or clock assignment ; 2 (0.3%)    ; 0 (0.0%)   ; 0 (0.0%)     ; 2 (0.5%)      ;
 ;                                                                                        ;             ;            ;              ;               ;
 ; Vectorless estimation                                                                  ;             ;            ;              ;               ;
-;     -- Number of signals with Toggle Rate from Vectorless estimation                   ; 337 (92.6%) ; 21 (43.8%) ; 109 (100.0%) ; 207 (100.0%)  ;
-;     -- Number of signals with Zero toggle rate, from Vectorless estimation             ; 67 (18.4%)  ; 1 (2.1%)   ; 16 (14.7%)   ; 50 (24.2%)    ;
-;     -- Number of signals with Static Probability from Vectorless estimation            ; 335 (92.0%) ; 21 (43.8%) ; 109 (100.0%) ; 205 (99.0%)   ;
+;     -- Number of signals with Toggle Rate from Vectorless estimation                   ; 649 (96.0%) ; 37 (57.8%) ; 218 (100.0%) ; 394 (100.0%)  ;
+;     -- Number of signals with Zero toggle rate, from Vectorless estimation             ; 68 (10.1%)  ; 1 (1.6%)   ; 16 (7.3%)    ; 51 (12.9%)    ;
+;     -- Number of signals with Static Probability from Vectorless estimation            ; 647 (95.7%) ; 37 (57.8%) ; 218 (100.0%) ; 392 (99.5%)   ;
 ;                                                                                        ;             ;            ;              ;               ;
 ; Default assignment                                                                     ;             ;            ;              ;               ;
 ;     -- Number of signals with Toggle Rate from Default assignment                      ; 0 (0.0%)    ; 0 (0.0%)   ; 0 (0.0%)     ; 0 (0.0%)      ;
-;     -- Number of signals with Static Probability from Default assignment               ; 27 (7.4%)   ; 27 (56.2%) ; 0 (0.0%)     ; 0 (0.0%)      ;
+;     -- Number of signals with Static Probability from Default assignment               ; 27 (4.0%)   ; 27 (42.2%) ; 0 (0.0%)     ; 0 (0.0%)      ;
 ;                                                                                        ;             ;            ;              ;               ;
 ; Assumed 0                                                                              ;             ;            ;              ;               ;
-;     -- Number of signals with Toggle Rate assumed 0                                    ; 27 (7.4%)   ; 27 (56.2%) ; 0 (0.0%)     ; 0 (0.0%)      ;
+;     -- Number of signals with Toggle Rate assumed 0                                    ; 27 (4.0%)   ; 27 (42.2%) ; 0 (0.0%)     ; 0 (0.0%)      ;
 +----------------------------------------------------------------------------------------+-------------+------------+--------------+---------------+
 
 
@@ -292,28 +298,27 @@ https://fpgasoftware.intel.com/eula.
 Info: *******************************************************************
 Info: Running Quartus Prime Power Analyzer
     Info: Version 23.1std.0 Build 991 11/28/2023 SC Lite Edition
-    Info: Processing started: Mon Jun 10 16:15:08 2024
+    Info: Processing started: Wed Jun 12 10:46:06 2024
 Info: Command: quartus_pow --read_settings_files=on --write_settings_files=off fifo -c fifo
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (21077): Low junction temperature is 0 degrees C
 Info (21077): High junction temperature is 85 degrees C
 Critical Warning (332012): Synopsys Design Constraints File file not found: 'fifo.sdc'. A Synopsys Design Constraints File is required by the Timing Analyzer to get proper timing constraints. Without it, the Compiler will not properly optimize the design.
 Warning (332060): Node: clk was determined to be a clock but was found without an associated clock assignment.
-    Info (13166): Register count[11] is being clocked by clk
+    Info (13166): Register fifo:fifo0|count[11] is being clocked by clk
 Warning (332068): No clocks defined in design.
 Info (223000): Starting Vectorless Power Activity Estimation
 Warning (222013): Relative toggle rates could not be calculated because no clock domain could be identified for some nodes
 Info (223001): Completed Vectorless Power Activity Estimation
 Info (218000): Using Advanced I/O Power to simulate I/O buffers with the specified board trace model
-Warning (215044): No board thermal model was selected.  Analyzing without board thermal modeling.
 Info (334003): Started post-fitting delay annotation
 Info (334004): Delay annotation completed successfully
 Info (215049): Average toggle rate for this design is 0.000 millions of transitions / sec
-Info (215031): Total thermal power estimate for the design is 98.57 mW
-Info: Quartus Prime Power Analyzer was successful. 0 errors, 6 warnings
-    Info: Peak virtual memory: 5010 megabytes
-    Info: Processing ended: Mon Jun 10 16:15:09 2024
-    Info: Elapsed time: 00:00:01
-    Info: Total CPU time (on all processors): 00:00:01
+Info (215031): Total thermal power estimate for the design is 98.65 mW
+Info: Quartus Prime Power Analyzer was successful. 0 errors, 5 warnings
+    Info: Peak virtual memory: 5039 megabytes
+    Info: Processing ended: Wed Jun 12 10:46:09 2024
+    Info: Elapsed time: 00:00:03
+    Info: Total CPU time (on all processors): 00:00:02
 
 
