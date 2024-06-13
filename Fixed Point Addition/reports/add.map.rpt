@@ -1,5 +1,5 @@
 Analysis & Synthesis report for add
-Mon Jun 10 11:26:53 2024
+Thu Jun 13 10:37:52 2024
 Quartus Prime Version 23.1std.0 Build 991 11/28/2023 SC Lite Edition
 
 
@@ -18,6 +18,7 @@ Quartus Prime Version 23.1std.0 Build 991 11/28/2023 SC Lite Edition
  10. Post-Synthesis Netlist Statistics for Top Partition
  11. Elapsed Time Per Partition
  12. Analysis & Synthesis Messages
+ 13. Analysis & Synthesis Suppressed Messages
 
 
 
@@ -44,16 +45,16 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                        ;
 +------------------------------------+------------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Mon Jun 10 11:26:53 2024          ;
+; Analysis & Synthesis Status        ; Successful - Thu Jun 13 10:37:52 2024          ;
 ; Quartus Prime Version              ; 23.1std.0 Build 991 11/28/2023 SC Lite Edition ;
 ; Revision Name                      ; add                                            ;
 ; Top-level Entity Name              ; add                                            ;
 ; Family                             ; MAX 10                                         ;
 ; Total logic elements               ; 20                                             ;
 ;     Total combinational functions  ; 20                                             ;
-;     Dedicated logic registers      ; 0                                              ;
-; Total registers                    ; 0                                              ;
-; Total pins                         ; 50                                             ;
+;     Dedicated logic registers      ; 18                                             ;
+; Total registers                    ; 18                                             ;
+; Total pins                         ; 52                                             ;
 ; Total virtual pins                 ; 0                                              ;
 ; Total memory bits                  ; 0                                              ;
 ; Embedded Multiplier 9-bit elements ; 0                                              ;
@@ -174,36 +175,36 @@ https://fpgasoftware.intel.com/eula.
 +--------------------------------------------------------------------------------+-----------------+------------------------+------------------------------------------------------------------------------------------------------------+---------+
 
 
-+------------------------------------------------------+
-; Analysis & Synthesis Resource Usage Summary          ;
-+---------------------------------------------+--------+
-; Resource                                    ; Usage  ;
-+---------------------------------------------+--------+
-; Estimated Total logic elements              ; 20     ;
-;                                             ;        ;
-; Total combinational functions               ; 20     ;
-; Logic element usage by number of LUT inputs ;        ;
-;     -- 4 input functions                    ; 0      ;
-;     -- 3 input functions                    ; 17     ;
-;     -- <=2 input functions                  ; 3      ;
-;                                             ;        ;
-; Logic elements by mode                      ;        ;
-;     -- normal mode                          ; 4      ;
-;     -- arithmetic mode                      ; 16     ;
-;                                             ;        ;
-; Total registers                             ; 0      ;
-;     -- Dedicated logic registers            ; 0      ;
-;     -- I/O registers                        ; 0      ;
-;                                             ;        ;
-; I/O pins                                    ; 50     ;
-;                                             ;        ;
-; Embedded Multiplier 9-bit elements          ; 0      ;
-;                                             ;        ;
-; Maximum fan-out node                        ; Add1~4 ;
-; Maximum fan-out                             ; 3      ;
-; Total fan-out                               ; 125    ;
-; Average fan-out                             ; 1.04   ;
-+---------------------------------------------+--------+
++---------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary             ;
++---------------------------------------------+-----------+
+; Resource                                    ; Usage     ;
++---------------------------------------------+-----------+
+; Estimated Total logic elements              ; 20        ;
+;                                             ;           ;
+; Total combinational functions               ; 20        ;
+; Logic element usage by number of LUT inputs ;           ;
+;     -- 4 input functions                    ; 0         ;
+;     -- 3 input functions                    ; 17        ;
+;     -- <=2 input functions                  ; 3         ;
+;                                             ;           ;
+; Logic elements by mode                      ;           ;
+;     -- normal mode                          ; 4         ;
+;     -- arithmetic mode                      ; 16        ;
+;                                             ;           ;
+; Total registers                             ; 18        ;
+;     -- Dedicated logic registers            ; 18        ;
+;     -- I/O registers                        ; 0         ;
+;                                             ;           ;
+; I/O pins                                    ; 52        ;
+;                                             ;           ;
+; Embedded Multiplier 9-bit elements          ; 0         ;
+;                                             ;           ;
+; Maximum fan-out node                        ; clk~input ;
+; Maximum fan-out                             ; 18        ;
+; Total fan-out                               ; 181       ;
+; Average fan-out                             ; 1.27      ;
++---------------------------------------------+-----------+
 
 
 +------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -211,7 +212,7 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+---------------------+-------------+--------------+
 ; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; UFM Blocks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; ADC blocks ; Full Hierarchy Name ; Entity Name ; Library Name ;
 +----------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+---------------------+-------------+--------------+
-; |add                       ; 20 (20)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 50   ; 0            ; 0          ; |add                ; add         ; work         ;
+; |add                       ; 20 (20)             ; 18 (18)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 52   ; 0            ; 0          ; |add                ; add         ; work         ;
 +----------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+---------------------+-------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
@@ -221,10 +222,10 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 0     ;
+; Total registers                              ; 18    ;
 ; Number of registers using Synchronous Clear  ; 0     ;
 ; Number of registers using Synchronous Load   ; 0     ;
-; Number of registers using Asynchronous Clear ; 0     ;
+; Number of registers using Asynchronous Clear ; 18    ;
 ; Number of registers using Asynchronous Load  ; 0     ;
 ; Number of registers using Clock Enable       ; 0     ;
 ; Number of registers using Preset             ; 0     ;
@@ -248,7 +249,9 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; boundary_port         ; 50                          ;
+; boundary_port         ; 52                          ;
+; cycloneiii_ff         ; 18                          ;
+;     CLR               ; 18                          ;
 ; cycloneiii_lcell_comb ; 20                          ;
 ;     arith             ; 16                          ;
 ;         2 data inputs ; 1                           ;
@@ -258,7 +261,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 ;         3 data inputs ; 2                           ;
 ;                       ;                             ;
 ; Max LUT depth         ; 4.60                        ;
-; Average LUT depth     ; 3.54                        ;
+; Average LUT depth     ; 2.73                        ;
 +-----------------------+-----------------------------+
 
 
@@ -277,26 +280,33 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 23.1std.0 Build 991 11/28/2023 SC Lite Edition
-    Info: Processing started: Mon Jun 10 11:26:45 2024
+    Info: Processing started: Thu Jun 13 10:37:44 2024
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off add -c add
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 16 of the 16 processors detected
 Info (12021): Found 1 design units, including 1 entities, in source file /users/shrsk/onedrive/documents/6g iit hyderabad/wisig/rtl training/fpadd/fpadd.srcs/sources_1/new/testbench.v
-    Info (12023): Found entity 1: testbench File: C:/Users/shrsk/OneDrive/Documents/6G IIT Hyderabad/WiSig/RTL training/fpadd/fpadd.srcs/sources_1/new/testbench.v Line: 25
+    Info (12023): Found entity 1: testbench File: C:/Users/shrsk/OneDrive/Documents/6G IIT Hyderabad/WiSig/RTL training/fpadd/fpadd.srcs/sources_1/new/testbench.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file /users/shrsk/onedrive/documents/6g iit hyderabad/wisig/rtl training/fpadd/fpadd.srcs/sources_1/new/add.v
     Info (12023): Found entity 1: add File: C:/Users/shrsk/OneDrive/Documents/6G IIT Hyderabad/WiSig/RTL training/fpadd/fpadd.srcs/sources_1/new/add.v Line: 23
 Info (12127): Elaborating entity "add" for the top level hierarchy
 Info (286030): Timing-Driven Synthesis is running
+Info (144001): Generated suppressed messages file C:/Users/shrsk/OneDrive/Documents/Intel/adder/output_files/add.map.smsg
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 70 device resources after synthesis - the final resource count might be different
-    Info (21058): Implemented 32 input pins
+Info (21057): Implemented 73 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 34 input pins
     Info (21059): Implemented 18 output pins
-    Info (21061): Implemented 20 logic cells
+    Info (21061): Implemented 21 logic cells
 Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 1 warning
-    Info: Peak virtual memory: 4785 megabytes
-    Info: Processing ended: Mon Jun 10 11:26:53 2024
+    Info: Peak virtual memory: 4784 megabytes
+    Info: Processing ended: Thu Jun 13 10:37:52 2024
     Info: Elapsed time: 00:00:08
-    Info: Total CPU time (on all processors): 00:00:09
+    Info: Total CPU time (on all processors): 00:00:08
+
+
++------------------------------------------+
+; Analysis & Synthesis Suppressed Messages ;
++------------------------------------------+
+The suppressed messages can be found in C:/Users/shrsk/OneDrive/Documents/Intel/adder/output_files/add.map.smsg.
 
 
