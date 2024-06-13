@@ -1,5 +1,5 @@
 Power Analyzer report for mult
-Thu Jun  6 16:24:34 2024
+Wed Jun 12 11:04:35 2024
 Quartus Prime Version 23.1std.0 Build 991 11/28/2023 SC Lite Edition
 
 
@@ -52,19 +52,19 @@ https://fpgasoftware.intel.com/eula.
 ; Number detected on machine ; 16          ;
 ; Maximum allowed            ; 16          ;
 ;                            ;             ;
-; Average used               ; 1.06        ;
+; Average used               ; 1.24        ;
 ; Maximum used               ; 16          ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processors 2-16        ;   0.4%      ;
+;     Processors 2-16        ;   1.6%      ;
 +----------------------------+-------------+
 
 
 +-------------------------------------------------------------------------------------------+
 ; Power Analyzer Summary                                                                    ;
 +----------------------------------------+--------------------------------------------------+
-; Power Analyzer Status                  ; Successful - Thu Jun  6 16:24:34 2024            ;
+; Power Analyzer Status                  ; Successful - Wed Jun 12 11:04:35 2024            ;
 ; Quartus Prime Version                  ; 23.1std.0 Build 991 11/28/2023 SC Lite Edition   ;
 ; Revision Name                          ; mult                                             ;
 ; Top-level Entity Name                  ; mult                                             ;
@@ -287,7 +287,7 @@ https://fpgasoftware.intel.com/eula.
 Info: *******************************************************************
 Info: Running Quartus Prime Power Analyzer
     Info: Version 23.1std.0 Build 991 11/28/2023 SC Lite Edition
-    Info: Processing started: Thu Jun  6 16:24:29 2024
+    Info: Processing started: Wed Jun 12 11:04:34 2024
 Info: Command: quartus_pow --read_settings_files=on --write_settings_files=off mult -c mult
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (21077): Low junction temperature is 0 degrees C
@@ -305,8 +305,8 @@ Info (215049): Average toggle rate for this design is 0.000 millions of transiti
 Info (215031): Total thermal power estimate for the design is 98.61 mW
 Info: Quartus Prime Power Analyzer was successful. 0 errors, 5 warnings
     Info: Peak virtual memory: 4995 megabytes
-    Info: Processing ended: Thu Jun  6 16:24:34 2024
-    Info: Elapsed time: 00:00:05
-    Info: Total CPU time (on all processors): 00:00:04
+    Info: Processing ended: Wed Jun 12 11:04:35 2024
+    Info: Elapsed time: 00:00:01
+    Info: Total CPU time (on all processors): 00:00:01
 
 
