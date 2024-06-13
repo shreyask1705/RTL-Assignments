@@ -21,7 +21,9 @@
 
 
 module mult #( data_width = 16, frac_width = 14, int_width = 2, dfrac = 28, dint = 4, dwidth = 32 )
-(
+(   
+    input clk,
+    input reset,
     input signed [data_width-1:0] A_in,
     input signed [data_width-1:0] B_in,
     output wire signed [data_width-1:0] out,
@@ -29,28 +31,34 @@ module mult #( data_width = 16, frac_width = 14, int_width = 2, dfrac = 28, dint
     output reg underflow_flag
 );
 
-    reg signed [dwidth-1:0] temp;
+    reg signed [dwidth:0] temp;
     reg signed [data_width-1:0] temp1;
     
-    always @(*) begin
-        overflow_flag = 1'b0;
-        underflow_flag = 1'b0;
-        
-        temp = A_in * B_in;
-        
-        
-        temp1 = temp >>> frac_width;
-        
-        // Overflow and underflow conditions
-        if ((A_in[data_width-1] == 1'b0 && B_in[data_width-1] == 1'b0 && temp1[data_width-1] == 1'b1) ||
-            (A_in[data_width-1] == 1'b1 && B_in[data_width-1] == 1'b1 && temp1[data_width-1] == 1'b0)) begin
-            overflow_flag = 1'b1;
-        end else if ((A_in[data_width-1] == 1'b0 && B_in[data_width-1] == 1'b0 && temp1[data_width-1] == 1'b0) ||
-                     (A_in[data_width-1] == 1'b1 && B_in[data_width-1] == 1'b1 && temp1[data_width-1] == 1'b1)) begin
-            underflow_flag = 1'b1;
+    always @(negedge clk) begin
+        if (reset) begin
+            temp=0;
+            temp1=0;
+        end else begin
+            overflow_flag = 1'b0;
+            underflow_flag = 1'b0;
+            
+            // Perform multiplication
+            temp = A_in * B_in;
+            
+            // Extract the relevant part for the output
+            temp1 = temp[dwidth-3:frac_width];
+            
+            // Overflow and underflow conditions
+            // Check if the extracted output (temp1) exceeds the representable range of data_width
+            if (temp > $signed({1'b0, {data_width-1{1'b1}}})) begin
+                overflow_flag = 1'b1;
+            end else if (temp < $signed({1'b1, {data_width-1{1'b0}}})) begin
+                underflow_flag = 1'b1;
+            end
         end
     end
     
     assign out = temp1;
     
 endmodule
+
