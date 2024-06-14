@@ -42,14 +42,14 @@ module mult #( data_width = 16, frac_width = 14, int_width = 2, dfrac = 28, dint
             overflow_flag = 1'b0;
             underflow_flag = 1'b0;
             
-            // Perform multiplication
+            
             temp = A_in * B_in;
             
-            // Extract the relevant part for the output
+            
             temp1 = temp[dwidth-3:frac_width];
             
             // Overflow and underflow conditions
-            // Check if the extracted output (temp1) exceeds the representable range of data_width
+            
             if (temp > $signed({1'b0, {data_width-1{1'b1}}})) begin
                 overflow_flag = 1'b1;
             end else if (temp < $signed({1'b1, {data_width-1{1'b0}}})) begin
