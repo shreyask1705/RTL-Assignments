@@ -1,5 +1,5 @@
 Analysis & Synthesis report for fifo
-Thu Jun 13 16:16:32 2024
+Tue Jun 18 12:49:00 2024
 Quartus Prime Version 23.1std.0 Build 991 11/28/2023 SC Lite Edition
 
 
@@ -57,13 +57,13 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                        ;
 +------------------------------------+------------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Thu Jun 13 16:16:32 2024          ;
+; Analysis & Synthesis Status        ; Successful - Tue Jun 18 12:49:00 2024          ;
 ; Quartus Prime Version              ; 23.1std.0 Build 991 11/28/2023 SC Lite Edition ;
 ; Revision Name                      ; fifo                                           ;
 ; Top-level Entity Name              ; dual_fifo                                      ;
 ; Family                             ; MAX 10                                         ;
-; Total logic elements               ; 280                                            ;
-;     Total combinational functions  ; 170                                            ;
+; Total logic elements               ; 278                                            ;
+;     Total combinational functions  ; 168                                            ;
 ;     Dedicated logic registers      ; 214                                            ;
 ; Total registers                    ; 214                                            ;
 ; Total pins                         ; 56                                             ;
@@ -203,16 +203,16 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------+-----------+
 ; Resource                                    ; Usage     ;
 +---------------------------------------------+-----------+
-; Estimated Total logic elements              ; 280       ;
+; Estimated Total logic elements              ; 278       ;
 ;                                             ;           ;
-; Total combinational functions               ; 170       ;
+; Total combinational functions               ; 168       ;
 ; Logic element usage by number of LUT inputs ;           ;
-;     -- 4 input functions                    ; 32        ;
+;     -- 4 input functions                    ; 31        ;
 ;     -- 3 input functions                    ; 63        ;
-;     -- <=2 input functions                  ; 75        ;
+;     -- <=2 input functions                  ; 74        ;
 ;                                             ;           ;
 ; Logic elements by mode                      ;           ;
-;     -- normal mode                          ; 101       ;
+;     -- normal mode                          ; 99        ;
 ;     -- arithmetic mode                      ; 69        ;
 ;                                             ;           ;
 ; Total registers                             ; 214       ;
@@ -226,8 +226,8 @@ https://fpgasoftware.intel.com/eula.
 ;                                             ;           ;
 ; Maximum fan-out node                        ; clk~input ;
 ; Maximum fan-out                             ; 246       ;
-; Total fan-out                               ; 2123      ;
-; Average fan-out                             ; 4.02      ;
+; Total fan-out                               ; 2149      ;
+; Average fan-out                             ; 4.09      ;
 +---------------------------------------------+-----------+
 
 
@@ -236,11 +236,11 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+---------------------------------------------------------------------------+-----------------+--------------+
 ; Compilation Hierarchy Node                ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; UFM Blocks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; ADC blocks ; Full Hierarchy Name                                                       ; Entity Name     ; Library Name ;
 +-------------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+---------------------------------------------------------------------------+-----------------+--------------+
-; |dual_fifo                                ; 170 (0)             ; 214 (0)                   ; 65536       ; 0          ; 0            ; 0       ; 0         ; 56   ; 0            ; 0          ; |dual_fifo                                                                ; dual_fifo       ; work         ;
-;    |fifo:fifo0|                           ; 97 (97)             ; 107 (107)                 ; 32768       ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |dual_fifo|fifo:fifo0                                                     ; fifo            ; work         ;
+; |dual_fifo                                ; 168 (0)             ; 214 (0)                   ; 65536       ; 0          ; 0            ; 0       ; 0         ; 56   ; 0            ; 0          ; |dual_fifo                                                                ; dual_fifo       ; work         ;
+;    |fifo:fifo0|                           ; 96 (96)             ; 107 (107)                 ; 32768       ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |dual_fifo|fifo:fifo0                                                     ; fifo            ; work         ;
 ;       |altsyncram:mem_rtl_0|              ; 0 (0)               ; 0 (0)                     ; 32768       ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |dual_fifo|fifo:fifo0|altsyncram:mem_rtl_0                                ; altsyncram      ; work         ;
 ;          |altsyncram_rvh1:auto_generated| ; 0 (0)               ; 0 (0)                     ; 32768       ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |dual_fifo|fifo:fifo0|altsyncram:mem_rtl_0|altsyncram_rvh1:auto_generated ; altsyncram_rvh1 ; work         ;
-;    |fifo:fifo1|                           ; 73 (73)             ; 107 (107)                 ; 32768       ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |dual_fifo|fifo:fifo1                                                     ; fifo            ; work         ;
+;    |fifo:fifo1|                           ; 72 (72)             ; 107 (107)                 ; 32768       ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |dual_fifo|fifo:fifo1                                                     ; fifo            ; work         ;
 ;       |altsyncram:mem_rtl_0|              ; 0 (0)               ; 0 (0)                     ; 32768       ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |dual_fifo|fifo:fifo1|altsyncram:mem_rtl_0                                ; altsyncram      ; work         ;
 ;          |altsyncram_rvh1:auto_generated| ; 0 (0)               ; 0 (0)                     ; 32768       ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |dual_fifo|fifo:fifo1|altsyncram:mem_rtl_0|altsyncram_rvh1:auto_generated ; altsyncram_rvh1 ; work         ;
 +-------------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+---------------------------------------------------------------------------+-----------------+--------------+
@@ -278,7 +278,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; Total registers                              ; 214   ;
 ; Number of registers using Synchronous Clear  ; 0     ;
 ; Number of registers using Synchronous Load   ; 41    ;
-; Number of registers using Asynchronous Clear ; 94    ;
+; Number of registers using Asynchronous Clear ; 126   ;
 ; Number of registers using Asynchronous Load  ; 0     ;
 ; Number of registers using Clock Enable       ; 146   ;
 ; Number of registers using Preset             ; 0     ;
@@ -586,22 +586,22 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-------------------------------------------+---------------------------------+
 
 
-+---------------------------------------------------------+
-; Port Connectivity Checks: "fifo:fifo1"                  ;
-+------------+--------+----------+------------------------+
-; Port       ; Type   ; Severity ; Details                ;
-+------------+--------+----------+------------------------+
-; tready_out ; Output ; Info     ; Explicitly unconnected ;
-+------------+--------+----------+------------------------+
++------------------------------------------------------------+
+; Port Connectivity Checks: "fifo:fifo1"                     ;
++---------------+--------+----------+------------------------+
+; Port          ; Type   ; Severity ; Details                ;
++---------------+--------+----------+------------------------+
+; s_axis_tready ; Output ; Info     ; Explicitly unconnected ;
++---------------+--------+----------+------------------------+
 
 
-+---------------------------------------------+
-; Port Connectivity Checks: "fifo:fifo0"      ;
-+-----------+-------+----------+--------------+
-; Port      ; Type  ; Severity ; Details      ;
-+-----------+-------+----------+--------------+
-; tready_in ; Input ; Info     ; Stuck at VCC ;
-+-----------+-------+----------+--------------+
++-------------------------------------------------+
+; Port Connectivity Checks: "fifo:fifo0"          ;
++---------------+-------+----------+--------------+
+; Port          ; Type  ; Severity ; Details      ;
++---------------+-------+----------+--------------+
+; m_axis_tready ; Input ; Info     ; Stuck at VCC ;
++---------------+-------+----------+--------------+
 
 
 +-----------------------------------------------------+
@@ -615,17 +615,17 @@ Note: In order to hide this table in the UI and the text report file, please set
 ;     CLR SLD           ; 9                           ;
 ;     ENA               ; 32                          ;
 ;     ENA CLR           ; 82                          ;
-;     ENA SLD           ; 32                          ;
+;     ENA CLR SLD       ; 32                          ;
 ;     plain             ; 56                          ;
-; cycloneiii_lcell_comb ; 171                         ;
+; cycloneiii_lcell_comb ; 169                         ;
 ;     arith             ; 69                          ;
 ;         2 data inputs ; 55                          ;
 ;         3 data inputs ; 14                          ;
-;     normal            ; 102                         ;
+;     normal            ; 100                         ;
 ;         1 data inputs ; 16                          ;
-;         2 data inputs ; 5                           ;
+;         2 data inputs ; 4                           ;
 ;         3 data inputs ; 49                          ;
-;         4 data inputs ; 32                          ;
+;         4 data inputs ; 31                          ;
 ; cycloneiii_ram_block  ; 32                          ;
 ;                       ;                             ;
 ; Max LUT depth         ; 4.00                        ;
@@ -648,20 +648,20 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 23.1std.0 Build 991 11/28/2023 SC Lite Edition
-    Info: Processing started: Thu Jun 13 16:16:24 2024
+    Info: Processing started: Tue Jun 18 12:48:52 2024
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off fifo -c fifo
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 16 of the 16 processors detected
 Info (12021): Found 1 design units, including 1 entities, in source file /users/shrsk/onedrive/documents/6g iit hyderabad/wisig/rtl training/fifogv/fifogv.srcs/sources_1/new/testbench.v
     Info (12023): Found entity 1: dual_fifo_tb File: C:/Users/shrsk/OneDrive/Documents/6G IIT Hyderabad/WiSig/RTL training/fifogv/fifogv.srcs/sources_1/new/testbench.v Line: 1
-Warning (10335): Unrecognized synthesis attribute "ram_style" at ../../6G IIT Hyderabad/WiSig/RTL training/fifogv/fifogv.srcs/sources_1/new/fifo.v(41) File: C:/Users/shrsk/OneDrive/Documents/6G IIT Hyderabad/WiSig/RTL training/fifogv/fifogv.srcs/sources_1/new/fifo.v Line: 41
+Warning (10335): Unrecognized synthesis attribute "ram_style" at ../../6G IIT Hyderabad/WiSig/RTL training/fifogv/fifogv.srcs/sources_1/new/fifo.v(42) File: C:/Users/shrsk/OneDrive/Documents/6G IIT Hyderabad/WiSig/RTL training/fifogv/fifogv.srcs/sources_1/new/fifo.v Line: 42
 Info (12021): Found 2 design units, including 2 entities, in source file /users/shrsk/onedrive/documents/6g iit hyderabad/wisig/rtl training/fifogv/fifogv.srcs/sources_1/new/fifo.v
-    Info (12023): Found entity 1: fifo File: C:/Users/shrsk/OneDrive/Documents/6G IIT Hyderabad/WiSig/RTL training/fifogv/fifogv.srcs/sources_1/new/fifo.v Line: 23
-    Info (12023): Found entity 2: dual_fifo File: C:/Users/shrsk/OneDrive/Documents/6G IIT Hyderabad/WiSig/RTL training/fifogv/fifogv.srcs/sources_1/new/fifo.v Line: 90
+    Info (12023): Found entity 1: fifo File: C:/Users/shrsk/OneDrive/Documents/6G IIT Hyderabad/WiSig/RTL training/fifogv/fifogv.srcs/sources_1/new/fifo.v Line: 24
+    Info (12023): Found entity 2: dual_fifo File: C:/Users/shrsk/OneDrive/Documents/6G IIT Hyderabad/WiSig/RTL training/fifogv/fifogv.srcs/sources_1/new/fifo.v Line: 88
 Info (12127): Elaborating entity "dual_fifo" for the top level hierarchy
-Info (12128): Elaborating entity "fifo" for hierarchy "fifo:fifo0" File: C:/Users/shrsk/OneDrive/Documents/6G IIT Hyderabad/WiSig/RTL training/fifogv/fifogv.srcs/sources_1/new/fifo.v Line: 126
-Warning (10230): Verilog HDL assignment warning at fifo.v(59): truncated value with size 32 to match size of target (12) File: C:/Users/shrsk/OneDrive/Documents/6G IIT Hyderabad/WiSig/RTL training/fifogv/fifogv.srcs/sources_1/new/fifo.v Line: 59
-Warning (10230): Verilog HDL assignment warning at fifo.v(60): truncated value with size 32 to match size of target (12) File: C:/Users/shrsk/OneDrive/Documents/6G IIT Hyderabad/WiSig/RTL training/fifogv/fifogv.srcs/sources_1/new/fifo.v Line: 60
+Info (12128): Elaborating entity "fifo" for hierarchy "fifo:fifo0" File: C:/Users/shrsk/OneDrive/Documents/6G IIT Hyderabad/WiSig/RTL training/fifogv/fifogv.srcs/sources_1/new/fifo.v Line: 123
+Warning (10230): Verilog HDL assignment warning at fifo.v(63): truncated value with size 32 to match size of target (12) File: C:/Users/shrsk/OneDrive/Documents/6G IIT Hyderabad/WiSig/RTL training/fifogv/fifogv.srcs/sources_1/new/fifo.v Line: 63
+Warning (10230): Verilog HDL assignment warning at fifo.v(64): truncated value with size 32 to match size of target (12) File: C:/Users/shrsk/OneDrive/Documents/6G IIT Hyderabad/WiSig/RTL training/fifogv/fifogv.srcs/sources_1/new/fifo.v Line: 64
 Warning (10230): Verilog HDL assignment warning at fifo.v(69): truncated value with size 32 to match size of target (12) File: C:/Users/shrsk/OneDrive/Documents/6G IIT Hyderabad/WiSig/RTL training/fifogv/fifogv.srcs/sources_1/new/fifo.v Line: 69
 Warning (10230): Verilog HDL assignment warning at fifo.v(70): truncated value with size 32 to match size of target (12) File: C:/Users/shrsk/OneDrive/Documents/6G IIT Hyderabad/WiSig/RTL training/fifogv/fifogv.srcs/sources_1/new/fifo.v Line: 70
 Warning (276020): Inferred RAM node "fifo:fifo0|mem_rtl_0" from synchronous design logic.  Pass-through logic has been added to match the read-during-write behavior of the original design.
@@ -721,15 +721,15 @@ Info (12021): Found 1 design units, including 1 entities, in source file db/alts
 Info (286030): Timing-Driven Synthesis is running
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 390 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 388 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 21 input pins
     Info (21059): Implemented 35 output pins
-    Info (21061): Implemented 302 logic cells
+    Info (21061): Implemented 300 logic cells
     Info (21064): Implemented 32 RAM segments
 Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 8 warnings
-    Info: Peak virtual memory: 4857 megabytes
-    Info: Processing ended: Thu Jun 13 16:16:32 2024
+    Info: Peak virtual memory: 4853 megabytes
+    Info: Processing ended: Tue Jun 18 12:49:00 2024
     Info: Elapsed time: 00:00:08
-    Info: Total CPU time (on all processors): 00:00:09
+    Info: Total CPU time (on all processors): 00:00:08
 
 
