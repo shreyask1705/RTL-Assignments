@@ -132,7 +132,7 @@ module dual_fifo #(
         .data_in(data_out0), 
         .s_axis_tvalid(m_axis_tvalid_f0),
         .s_axis_tlast(m_axis_tlast_f0),
-        .s_axis_tready(), // This signal is not used in this context
+        .s_axis_tready(), 
         .data_out(data_out1),
         .m_axis_tvalid(m_axis_tvalid_f1),
         .m_axis_tlast(m_axis_tlast_f1),
