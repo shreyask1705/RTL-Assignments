@@ -13,16 +13,16 @@ module dual_fifo_tb;
     
     // FIFO 0 signals
     reg [data_width-1:0] data_in0;
-    reg tvalid_in0;
-    reg tlast_in0;
-    wire tready_out0;
+    reg s_axis_tvalid_f0;
+    reg s_axis_tlast_f0;
+    wire s_axis_tready_f0;
     wire [data_width-1:0] data_out0;
     
     // FIFO 1 signals
     wire [data_width-1:0] data_out1;
-    wire tvalid_out1;
-    wire tlast_out1;
-    reg tready_in1;
+    wire m_axis_tvalid_f1;
+    wire m_axis_tlast_f1;
+    reg m_axis_tready_f1;
 
     // Instantiate the dual_fifo module
     dual_fifo #(
@@ -32,14 +32,14 @@ module dual_fifo_tb;
         .clk(clk),
         .reset(reset),
         .data_in0(data_in0),
-        .tvalid_in0(tvalid_in0),
-        .tlast_in0(tlast_in0),
-        .tready_out0(tready_out0),
-        .data_out0(data_out0),  
+        .s_axis_tvalid_f0(s_axis_tvalid_f0),
+        .s_axis_tlast_f0(s_axis_tlast_f0),
+        .s_axis_tready_f0(s_axis_tready_f0),
+        .data_out0(data_out0),
         .data_out1(data_out1),
-        .tvalid_out1(tvalid_out1),
-        .tlast_out1(tlast_out1),
-        .tready_in1(tready_in1)
+        .m_axis_tvalid_f1(m_axis_tvalid_f1),
+        .m_axis_tlast_f1(m_axis_tlast_f1),
+        .m_axis_tready_f1(m_axis_tready_f1)
     );
     
     // Clock generation
@@ -52,9 +52,9 @@ module dual_fifo_tb;
         clk = 0;
         reset = 1;
         data_in0 = 0;
-        tvalid_in0 = 0;
-        tlast_in0 = 0;
-        tready_in1 = 1;  // Enable reading from FIFO 1
+        s_axis_tvalid_f0 = 0;
+        s_axis_tlast_f0 = 0;
+        m_axis_tready_f1 = 1;  // Enable reading from FIFO 1
 
         $readmemb("C:/Users/shrsk/Downloads/inp_bin.dat", mem);
         fp_write_out0 = $fopen("out_fifo0_bin.txt", "w");
@@ -64,35 +64,35 @@ module dual_fifo_tb;
         #10 reset = 0;
     end
 
-    always @(posedge clk) begin
+    always @(negedge clk) begin
         if (reset) begin
             i <= 0;
         end else begin
             if (i < 24000) begin
-                if (tready_out0) begin
+                if (s_axis_tready_f0) begin
                     data_in0 <= mem[i];
-                    tvalid_in0 <= 1;
-                    if (i == 10) begin // tlast packet
-                        tlast_in0 <= 1;
+                    s_axis_tvalid_f0 <= 1;
+                    if (i == 10) begin
+                        s_axis_tlast_f0 <= 1;
                     end else begin
-                        tlast_in0 <= 0;
+                        s_axis_tlast_f0 <= 0;
                     end
                     i <= i + 1;
                 end else begin
-                    tvalid_in0 <= 0;
+                    s_axis_tvalid_f0 <= 0;
                 end
             end else begin
-                tvalid_in0 <= 0;
-                tlast_in0 <= 0;
+                s_axis_tvalid_f0 <= 0;
+                s_axis_tlast_f0 <= 0;
             end
 
             // Write output data to file
-            if (tvalid_out1 && tready_in1) begin
+            if (m_axis_tvalid_f1 && m_axis_tready_f1) begin
                 $fwrite(fp_write_out1, "%b\n", data_out1);
             end
             
             // Write FIFO 0 output data to file
-            if (tvalid_in0 && tready_out0) begin
+            if (s_axis_tvalid_f0 && s_axis_tready_f0) begin
                 $fwrite(fp_write_out0, "%b\n", data_out0);
             end
         end
