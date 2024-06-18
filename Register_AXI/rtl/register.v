@@ -28,14 +28,14 @@ module register#(
     input clk, input reset,
     input [data_width-1:0] data_in,
     output wire [data_width-1:0] data_out,
-    input tvalid_in,
-    output tready_out,
-    output tdata_out,
-    output tlast_out,
-    output tvalid_out,
-    input tready_in,
-    input tdata_in,
-    input tlast_in
+    input s_axis_tvalid,
+    output s_axis_tready,
+    //output tdata_out,
+    output m_axis_tlast,
+    output m_axis_tvalid,
+    input m_axis_tready,
+    //input tdata_in,
+    input s_axis_tlast
 );
 
     reg [data_width-1:0] register;
@@ -45,7 +45,7 @@ module register#(
     localparam s0 = 2'b00;
     localparam s1 = 2'b01;
     localparam s2 = 2'b10;
-    localparam s3 = 2'b11;
+    //localparam s3 = 2'b11;
 
     reg [1:0] state, n_state;
     reg nready;
@@ -56,7 +56,7 @@ module register#(
             nready <= 1;
         end else begin
             state <= n_state;
-            nready <= (state == s3) ? 1'b1 : 1'b0;
+            nready <= (state == s2) ? 1'b1 : 1'b0;
         end
     end
 
@@ -68,20 +68,20 @@ module register#(
                 end
             end
             s1 : begin
-                if (tdata_in == 1 && tvalid_in == 1) begin
+                if (s_axis_tvalid == 1) begin
                     register <= data_in;
                 end
                 n_state <= s2;
             end
             s2 : begin
-                if (tready_in == 1) begin
+                if (m_axis_tready == 1) begin
                     x <= register;
-                    n_state <= s3;
+                    n_state <= s1;
                 end
             end
-            s3 : begin
-                n_state <= s0;
-            end
+//            s3 : begin
+//                n_state <= s0;
+//            end
             default : begin
                 n_state <= s0;
             end
@@ -89,16 +89,16 @@ module register#(
     end
 
     always @(*) begin
-        if (tlast_in)
+        if (s_axis_tlast)
             l=1;
         else
             l=0;
     end            
     assign data_out = x;
-    assign tready_out = nready;
-    assign tvalid_out = (state == s2);
-    assign tdata_out = (state == s2);
-    assign tlast_out = l;//(state == s3);
+    assign s_axis_tready = nready;
+    assign m_axis_tvalid = (state == s2);
+    //assign tdata_out = (state == s2);
+    assign m_axis_tlast = l;//(state == s3);
 
 endmodule
 
